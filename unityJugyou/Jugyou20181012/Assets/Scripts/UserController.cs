@@ -7,6 +7,8 @@ public class UserController : MonoBehaviour {
 
     PlayerController m_playerController;
 
+    bool m_isAttacking;
+
     float m_attackintervalTimer;
 
     //上キーが押された
@@ -82,19 +84,24 @@ public class UserController : MonoBehaviour {
         {
             m_playerController.Down = 2.0f;
         }
-        if (m_attackintervalTimer <= 0)
+
+
+
+        if (!m_isAttacking && m_attackintervalTimer <= 0)
         {
             if (Input.GetKey(KeyCode.A))
             {
                 UnityAction action = AttackFinished;
                 m_playerController.PlayAnimation("Attack", action);
+                m_isAttacking = true;
             }
-        }
 
-        if (Input.GetKey(KeyCode.Z))
-        {
-            UnityAction action = AttackFinished;
-            m_playerController.PlayAnimation("Attack2", action);
+            else if (Input.GetKey(KeyCode.Z))
+            {
+                UnityAction action = AttackFinished;
+                m_playerController.PlayAnimation("Attack2", action);
+                m_isAttacking = true;
+            }
         }
         else
         {
@@ -108,6 +115,9 @@ public class UserController : MonoBehaviour {
     public void AttackFinished()
     {
         m_attackintervalTimer = 0.2f;
+
+        m_isAttacking = false;
+
  //       Debug.Log("AttackFinished");
     }
 }

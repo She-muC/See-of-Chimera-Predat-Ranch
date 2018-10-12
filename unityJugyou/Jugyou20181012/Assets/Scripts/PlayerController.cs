@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     GameObject m_target;    //対戦相手
 
+    [SerializeField]
+    BoxCollider m_SwordAttackcollider;
+
 
     [SerializeField]
     bool m_animationOnly;       //アニメーションだけ行い移動処理は行わない
@@ -25,14 +28,14 @@ public class PlayerController : MonoBehaviour {
 
     SimpleAnimation m_simpleAnimation;  //アニメーション管理変数
 
-
+    Rigidbody m_rigitBody;
 
 	// Use this for initialization
 	void Start () {
 
         m_simpleAnimation = GetComponent<SimpleAnimation>();
 
-		
+        m_rigitBody = GetComponent<Rigidbody>;
 	}
 	
 	// Update is called once per frame
@@ -195,13 +198,34 @@ public class PlayerController : MonoBehaviour {
         m_isPlayingAnimation = false;   //フラグをfalseに戻す
     }
 
+
+    /// <summary>
+    /// 当たり判定開始
+    /// </summary>
     public void StartAttack()
     {
- //       Debug.Log("StartAttack");
+        m_SwordAttackcollider.enabled = true;
     }
 
+
+    /// <summary>
+    /// 
+    /// </summary>
     public void EndAttack()
     {
- //       Debug.Log("EndAttack");
+        m_SwordAttackcollider.enabled = false;
+    }
+
+
+    /// <summary>
+    /// ダメージ判定
+    /// </summary>
+    /// <param name="col"></param>
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Attack")
+        {
+            m_rigitBody.AddForce(transform.forward * -5f, ForceMode.VelocityChange);
+        }
     }
 }
