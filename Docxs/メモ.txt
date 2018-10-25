@@ -1,0 +1,41 @@
+Scenes
+
+Title  //タイトル
+
+Menu　//メニュー画面
+
+Choice　//キメラ選択画面
+
+Farm　//プレイ画面
+
+Result　//リザルト画面
+
+Mixing　//キメラ合成画面
+
+
+Scripts
+
+TitleManager
+
+MenuManager
+
+ChoiceManager
+SkillManager
+
+FarmManager
+PlayerController
+KeeperController
+AnimalController
+ReactionController
+SkillController
+AnimationController
+
+
+ResultManager
+AnimalCount
+
+
+MixigManager
+
+
+TransitionManager
