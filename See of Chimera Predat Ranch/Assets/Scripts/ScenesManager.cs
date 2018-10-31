@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class TitileManager : MonoBehaviour {
+public class ScenesManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -18,9 +18,15 @@ public class TitileManager : MonoBehaviour {
 
     public void OnClick(int num)
     {
-        if(num == 0)
+        switch(num)
         {
-            SceneManager.LoadScene("Menu");
+            case 1 :
+            SceneManager.LoadScene("Farm");
+            break;
+
+            case 2:
+            SceneManager.LoadScene("Result");
+            break;
         }
         
     }
