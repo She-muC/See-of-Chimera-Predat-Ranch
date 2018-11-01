@@ -27,6 +27,13 @@ public class ScenesManager : MonoBehaviour {
             case 2:
             SceneManager.LoadScene("Result");
             break;
+
+            case 3:
+            SceneManager.LoadScene("Title");
+            break;
+
+            default:
+            break;
         }
         
     }
