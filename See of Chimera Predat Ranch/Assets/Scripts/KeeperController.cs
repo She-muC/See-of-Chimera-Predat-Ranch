@@ -6,6 +6,15 @@ using UnityEngine.AI;
 
 public class KeeperController : MonoBehaviour
 {
+    [SerializeField]
+    GameObject m_target;
+    NavMeshAgent m_navmeshAgent;
+
+    [SerializeField]
+    float m_distance = 3f;        //ターゲットを見つけられる距離
+
+    [SerializeField]
+    float m_fieldOfView = 90f;    //ターゲットを見つけられる視野角
 
     //　初期位置
     private Vector3 startPosition;
@@ -16,6 +25,14 @@ public class KeeperController : MonoBehaviour
     private Transform[] patrolPositions;
     //　次に巡回する位置
     private int nowPos = 0;
+
+    enum MoveState
+    {
+        Patrol, //ルート巡回
+        Chase,  //追跡
+    }
+    MoveState m_moveState = MoveState.Patrol;     //移動状態
+
 
     void Start()
     {
@@ -58,5 +75,32 @@ public class KeeperController : MonoBehaviour
     public Vector3 GetDestination()
     {
         return destination;
+    }
+
+    void Update()
+    {
+        if (Vector3.Distance(transform.position, m_target.transform.position) < m_distance)
+        {
+            //相手の位置と自分の位置の差ベクトルを求める
+            Vector3 diff = m_target.transform.position - transform.position;
+
+            float angle = Vector3.Angle(transform.forward, diff);
+            if (angle < m_fieldOfView / 2f)
+            {
+                m_moveState = MoveState.Chase;  //追跡モードに切り替え
+            }
+        }
+    }
+
+    void Chase()
+    {
+
+        //NavMeshが準備できているなら
+        if (m_navmeshAgent.pathStatus != NavMeshPathStatus.PathInvalid)
+        {
+            //NavMeshAgentに目標地をセット
+            m_navmeshAgent.SetDestination(m_target.transform.position);
+  
+        }
     }
 }
