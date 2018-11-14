@@ -10,6 +10,7 @@ ModelImporter:
     2100000: Mat
     2100002: Mat_1
     2100004: Mat_2
+    2100006: defaultMat
     2300000: default
     3300000: default
     4300000: default
