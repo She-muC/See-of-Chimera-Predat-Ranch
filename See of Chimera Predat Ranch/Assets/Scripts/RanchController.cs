@@ -18,6 +18,8 @@ public class RanchController : MonoBehaviour
     NavMeshAgent m_navmeshAgent;         //NavMeshAgentコンポーネント
     PlayerController m_playerController;     //アニメーション担当
 
+    SimpleAnimation m_simpleAnimation = new SimpleAnimation();
+
     [SerializeField]
     float m_walkingSpeed = 3f;    //歩くスピード
 
@@ -51,21 +53,24 @@ public class RanchController : MonoBehaviour
         m_navmeshAgent = GetComponent<NavMeshAgent>();
 
         m_playerController = GetComponent<PlayerController>();
+
+        m_simpleAnimation = GetComponent<SimpleAnimation>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
         switch (m_moveState)
         {
             case MoveState.Patrol:
                 {
+                    m_simpleAnimation.CrossFade("Walk", 0.2f);
                     Patrol();
                 }
                 break;
             case MoveState.Chase:
                 {
+                    m_simpleAnimation.CrossFade("Walk", 0.2f);
                     Chase();
                 }
                 break;
@@ -116,8 +121,8 @@ public class RanchController : MonoBehaviour
             float angle = Vector3.Angle(transform.forward, diff);
             if (angle < m_fieldOfView / 2f)
             {
-                m_moveState = MoveState.Chase;  //追跡モードに切り替え
                 Debug.Log("追跡");
+                m_moveState = MoveState.Chase;  //追跡モードに切り替え
             }
         }
         
@@ -140,14 +145,16 @@ public class RanchController : MonoBehaviour
         if (m_catchAnimationTimer > 0)
         {
             m_catchAnimationTimer -= Time.deltaTime;
+            
         }
         else
         {
             //捕まえるアニメーションの再生
-            if (Vector3.Distance(transform.position, m_target.transform.position) < 1f)
+            if (Vector3.Distance(transform.position, m_target.transform.position) < 5f)
             {
+                Debug.Log("捕獲");
+                m_simpleAnimation.CrossFade("Attack", 0.2f);
                 UnityAction action = OnCatchAnimationFinished;  //コールバック関数の登録
-               // m_playerController.PlayAnimation("Catch", action);
             }
         }
 
@@ -159,8 +166,8 @@ public class RanchController : MonoBehaviour
             float angle = Vector3.Angle(transform.forward, diff);
             if (angle > m_fieldOfView / 2f)
             {
-                m_moveState = MoveState.Patrol;  //追跡モードに切り替え
                 Debug.Log("巡回");
+                m_moveState = MoveState.Patrol;  //巡回モードに切り替え
             }
         }
 
@@ -173,7 +180,6 @@ public class RanchController : MonoBehaviour
     void OnCatchAnimationFinished()
     {
         m_catchAnimationTimer = 0.5f;       //連続で再生されないようにタイマーをセット
-
     }
 
     private void OnCollisionEnter(Collision collision)
