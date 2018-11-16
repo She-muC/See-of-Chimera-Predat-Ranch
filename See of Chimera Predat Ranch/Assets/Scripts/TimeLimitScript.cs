@@ -25,9 +25,9 @@ public class TimeLimitScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         
-        minute = 0;
+        minute = 1;
 
-        seconds = 10;
+        seconds = 60;
 
         oldSeconds = 0;
 
