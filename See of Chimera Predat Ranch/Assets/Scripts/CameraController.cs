@@ -17,8 +17,8 @@ public class CameraController : MonoBehaviour
     void LateUpdate()
     {
         //カメラの移動
-        Vector3 pos = m_target.transform.position + (-m_target.transform.forward * 8f); //戦車の６ｍ後ろにカメラを移動
-        pos.y += 2f;                        //高さを３ｍ上げる
+        Vector3 pos = m_target.transform.position + (-m_target.transform.forward * 10f); //戦車の６ｍ後ろにカメラを移動
+        pos.y += 3f;                        //高さを上げる
         pos = Vector3.Lerp(transform.position, pos, 0.1f);  //カメラの移動を遅らせる
         transform.position = pos;           //変更した値を反映
 

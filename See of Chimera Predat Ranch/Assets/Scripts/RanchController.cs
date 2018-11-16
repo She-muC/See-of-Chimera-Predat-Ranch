@@ -34,6 +34,7 @@ public class RanchController : MonoBehaviour
 
     float m_catchAnimationTimer;    //捕まえるアニメーションが連続再生されないためのタイマー
 
+
     /// <summary>
     /// 移動状態
     /// </summary>
@@ -151,10 +152,10 @@ public class RanchController : MonoBehaviour
         {
             //捕まえるアニメーションの再生
             if (Vector3.Distance(transform.position, m_target.transform.position) < 5f)
-            {
+            { 
                 Debug.Log("捕獲");
-                m_simpleAnimation.CrossFade("Attack", 0.2f);
-                UnityAction action = OnCatchAnimationFinished;  //コールバック関数の登録
+                    m_simpleAnimation.Play("Attack");
+                    UnityAction action = OnCatchAnimationFinished;  //コールバック関数の登録
             }
         }
 

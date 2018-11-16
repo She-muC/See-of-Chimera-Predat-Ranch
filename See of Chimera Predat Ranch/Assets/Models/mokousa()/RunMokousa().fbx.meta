@@ -1,0 +1,206 @@
+fileFormatVersion: 2
+guid: 7bdf7e5972c864441859bcb0520eac29
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Body
+    100002: kao
+    100004: LeftWing
+    100006: Lhane_1
+    100008: LightLeg
+    100010: Lleg
+    100012: null
+    100014: Rhane
+    100016: RightLeg
+    100018: RightWing
+    100020: Rleg
+    100022: //RootNode
+    100024: SDS
+    100026: shipo
+    100028: Tale
+    100030: "\u30B8\u30E7\u30A4\u30F3\u30C8"
+    100032: "\u30B8\u30E7\u30A4\u30F3\u30C8_1"
+    100034: "\u30B8\u30E7\u30A4\u30F3\u30C8_1_2"
+    100036: "\u30B8\u30E7\u30A4\u30F3\u30C8_1_3"
+    100038: "\u30B8\u30E7\u30A4\u30F3\u30C8_1_4"
+    100040: "\u30B8\u30E7\u30A4\u30F3\u30C8_2"
+    100042: "\u30B8\u30E7\u30A4\u30F3\u30C8_2_2"
+    100044: "\u30B8\u30E7\u30A4\u30F3\u30C8_2_3"
+    100046: "\u30B8\u30E7\u30A4\u30F3\u30C8_2_4"
+    100048: "\u30B8\u30E7\u30A4\u30F3\u30C8_3"
+    100050: "\u30B8\u30E7\u30A4\u30F3\u30C8_3_2"
+    100052: "\u30B8\u30E7\u30A4\u30F3\u30C8_3_3"
+    100054: "\u30B8\u30E7\u30A4\u30F3\u30C8_4"
+    100056: "\u30B8\u30E7\u30A4\u30F3\u30C8_4_2"
+    100058: "\u30B8\u30E7\u30A4\u30F3\u30C8_5"
+    100060: "\u30B8\u30E7\u30A4\u30F3\u30C8_5_2"
+    100062: "\u30B8\u30E7\u30A4\u30F3\u30C8_6"
+    100064: "\u30B8\u30E7\u30A4\u30F3\u30C8_6_2"
+    100066: "\u30B8\u30E7\u30A4\u30F3\u30C8_7"
+    100068: "\u30B8\u30E7\u30A4\u30F3\u30C8_7_2"
+    100070: "\u30B8\u30E7\u30A4\u30F3\u30C8_8"
+    100072: "\u5BFE\u79F0"
+    400000: Body
+    400002: kao
+    400004: LeftWing
+    400006: Lhane_1
+    400008: LightLeg
+    400010: Lleg
+    400012: null
+    400014: Rhane
+    400016: RightLeg
+    400018: RightWing
+    400020: Rleg
+    400022: //RootNode
+    400024: SDS
+    400026: shipo
+    400028: Tale
+    400030: "\u30B8\u30E7\u30A4\u30F3\u30C8"
+    400032: "\u30B8\u30E7\u30A4\u30F3\u30C8_1"
+    400034: "\u30B8\u30E7\u30A4\u30F3\u30C8_1_2"
+    400036: "\u30B8\u30E7\u30A4\u30F3\u30C8_1_3"
+    400038: "\u30B8\u30E7\u30A4\u30F3\u30C8_1_4"
+    400040: "\u30B8\u30E7\u30A4\u30F3\u30C8_2"
+    400042: "\u30B8\u30E7\u30A4\u30F3\u30C8_2_2"
+    400044: "\u30B8\u30E7\u30A4\u30F3\u30C8_2_3"
+    400046: "\u30B8\u30E7\u30A4\u30F3\u30C8_2_4"
+    400048: "\u30B8\u30E7\u30A4\u30F3\u30C8_3"
+    400050: "\u30B8\u30E7\u30A4\u30F3\u30C8_3_2"
+    400052: "\u30B8\u30E7\u30A4\u30F3\u30C8_3_3"
+    400054: "\u30B8\u30E7\u30A4\u30F3\u30C8_4"
+    400056: "\u30B8\u30E7\u30A4\u30F3\u30C8_4_2"
+    400058: "\u30B8\u30E7\u30A4\u30F3\u30C8_5"
+    400060: "\u30B8\u30E7\u30A4\u30F3\u30C8_5_2"
+    400062: "\u30B8\u30E7\u30A4\u30F3\u30C8_6"
+    400064: "\u30B8\u30E7\u30A4\u30F3\u30C8_6_2"
+    400066: "\u30B8\u30E7\u30A4\u30F3\u30C8_7"
+    400068: "\u30B8\u30E7\u30A4\u30F3\u30C8_7_2"
+    400070: "\u30B8\u30E7\u30A4\u30F3\u30C8_8"
+    400072: "\u5BFE\u79F0"
+    2100000: Mat
+    4300000: kao
+    4300002: shipo
+    4300004: Rleg
+    4300006: Lleg
+    4300008: Rhane
+    4300010: Lhane_1
+    7400000: Walk
+    9500000: //RootNode
+    13700000: kao
+    13700002: Lhane_1
+    13700004: Lleg
+    13700006: Rhane
+    13700008: Rleg
+    13700010: shipo
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk
+      takeName: CINEMA_4D____
+      firstFrame: 0
+      lastFrame: 63
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
