@@ -9,10 +9,9 @@ public class PlayerMovementController : MonoBehaviour
     public float m_speed = 3f;
     public float m_angle = 90f;
 
-    bool m_forward = false;
-    bool m_back = false;
-    bool m_left = false;
-    bool m_right = false;
+    float m_forward = 0;
+    float m_side = 0;
+
 
     // Use this for initialization
     void Start()
@@ -27,18 +26,11 @@ public class PlayerMovementController : MonoBehaviour
         //現在位置を取得
         Vector3 pos = transform.position;
 
-        //前進処理
-        if (m_forward == true)
-        {
+
             //transform.forwardは自分が向いている方向を表すベクトル
-            pos += transform.forward * m_speed * Time.deltaTime;
-        }
-        //後退処理
-        else if (m_back == true)
-        {
-            //transform.forwardは自分が向いている方向を表すベクトル
-            pos -= transform.forward * m_speed * Time.deltaTime;
-        }
+            pos += transform.forward * m_forward * m_speed * Time.deltaTime;
+
+
 
         //変更した値を反映
         transform.position = pos;
@@ -48,15 +40,8 @@ public class PlayerMovementController : MonoBehaviour
         //現在の回転情報を取得
         Vector3 rot = transform.rotation.eulerAngles;
 
-        if (m_right == true)
-        {
-            rot.y += m_angle * Time.deltaTime;
-        }
 
-        if (m_left == true)
-        {
-            rot.y -= m_angle * Time.deltaTime;
-        }
+            rot.y += m_angle * m_side * Time.deltaTime;
 
         //変更した値を反映
         transform.rotation = Quaternion.Euler(rot);
@@ -65,32 +50,23 @@ public class PlayerMovementController : MonoBehaviour
 
 
         //変更したフラグを元に戻す
-        m_forward = false;
-        m_back = false;
-        m_left = false;
-        m_right = false;
+        m_forward = 0;
+        m_side = 0;
     }
 
     //前に進む
-    public void Forward()
+    public void Forward(float value)
     {
-        m_forward = true;
+        m_forward = value;
     }
-    //後ろに進む
-    public void Back()
-    {
-        m_back = true;
-    }
+
+
     //右回転
-    public void Right()
+    public void Side(float value)
     {
-        m_right = true;
+        m_side = value;
     }
-    //左回転
-    public void Left()
-    {
-        m_left = true;
-    }
+
 
 
 }
