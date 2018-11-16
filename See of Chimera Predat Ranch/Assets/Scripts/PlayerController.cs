@@ -3,16 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour
 {
-    //プレイヤータイプの切り替え
-    public enum PlayerType
-    {
-        Player1,
-        Player2,
-    }
-    public PlayerType m_playerType = PlayerType.Player1;
 
     public PlayerMovementController m_playermovementController; //戦車の操作系
 
@@ -25,46 +19,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (m_playerType)
-        {
-            case PlayerType.Player1:
-                if (Input.GetKey(KeyCode.W))
-                {
-                    m_playermovementController.Forward();
-                }
-                else if (Input.GetKey(KeyCode.S))
-                {
-                    m_playermovementController.Back();
-                }
-                if (Input.GetKey(KeyCode.A))
-                {
-                    m_playermovementController.Left();
-                }
-                else if (Input.GetKey(KeyCode.D))
-                {
-                    m_playermovementController.Right();
-                }
-                break;
+       
+        //バーチャルパッドスライド時の移動処理
+        float vertical = CrossPlatformInputManager.GetAxis("Vertical");
+        float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
 
-            case PlayerType.Player2:
-                if (Input.GetKey(KeyCode.UpArrow))
-                {
-                    m_playermovementController.Forward();
-                }
-                else if (Input.GetKey(KeyCode.DownArrow))
-                {
-                    m_playermovementController.Back();
-                }
-                if (Input.GetKey(KeyCode.LeftArrow))
-                {
-                    m_playermovementController.Left();
-                }
-                else if (Input.GetKey(KeyCode.RightArrow))
-                {
-                    m_playermovementController.Right();
-                }
-                break;
-        }
+        m_playermovementController.Forward(vertical);
+
+        m_playermovementController.Side(horizontal);
+
+        //スキルボタン押下時の処理
+        CrossPlatformInputManager.GetButtonDown("Skill1");
+
+
 
     }
 }

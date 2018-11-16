@@ -27,7 +27,7 @@ public class TimeLimitScript : MonoBehaviour {
         
         minute = 0;
 
-        seconds = 10;
+        seconds = 60;
 
         oldSeconds = 0;
 
