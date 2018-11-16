@@ -9,11 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: d5d847d96c4a9104d88581b1ad9f2211
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 364262e0a6f24634f95f73b13104c074
-  - enabled: 1
     path: Assets/Scenes/farm.unity
-    guid: c66a1be3aeccb324b9712fcd8c943c24
+    guid: ae0cdbea428288a4f97fb70a6fc78957
   - enabled: 1
     path: Assets/Scenes/Result.unity
     guid: 6b79693f1f7ae3a4bae2aee6902831fc
