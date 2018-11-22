@@ -389,7 +389,7 @@ public partial class SimpleAnimation: MonoBehaviour
         }
 
         m_Animator = GetComponent<Animator>();
-        m_Animator.updateMode = m_AnimatePhysics ? AnimatorUpdateMode.AnimatePhysics : AnimatorUpdateMode.Normal;
+
         m_Animator.cullingMode = m_CullingMode;
     }
 
