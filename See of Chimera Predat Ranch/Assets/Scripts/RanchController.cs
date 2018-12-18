@@ -13,7 +13,21 @@ public class RanchController : MonoBehaviour
     int m_routeNo;              //何番目の目標地点に向かわせるか
 
     [SerializeField]
-    GameObject m_target;
+    GameObject m_target1;
+
+    [SerializeField]
+    GameObject m_target2;
+
+    [SerializeField]
+    GameObject m_target3;
+
+    [SerializeField]
+    GameObject m_target4;
+
+    private GameObject m_target;
+
+    private string CollideName;
+
     bool m_isNavSet;
     NavMeshAgent m_navmeshAgent;         //NavMeshAgentコンポーネント
     PlayerController m_playerController;     //アニメーション担当
@@ -50,6 +64,11 @@ public class RanchController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        m_target1 = GameObject.Find("Player1");
+        m_target2 = GameObject.Find("Player2");
+        m_target3 = GameObject.Find("Player3");
+        m_target4 = GameObject.Find("Player4");
+
         //自分についているNavMeshAgentコンポーネントを取得
         m_navmeshAgent = GetComponent<NavMeshAgent>();
 
@@ -114,19 +133,63 @@ public class RanchController : MonoBehaviour
 
         //追跡に切り替えるための判定
         //ターゲットとの距離を調べる
-        if (Vector3.Distance(transform.position, m_target.transform.position) < m_distance)
+        if (Vector3.Distance(transform.position, m_target1.transform.position) < m_distance)
         {
             //相手の位置と自分の位置の差ベクトルを求める
-            Vector3 diff = m_target.transform.position - transform.position;
+            Vector3 diff1 = m_target1.transform.position - transform.position;
 
-            float angle = Vector3.Angle(transform.forward, diff);
-            if (angle < m_fieldOfView / 2f)
+
+            float angle1 = Vector3.Angle(transform.forward, diff1);
+
+
+            if (angle1 < m_fieldOfView / 2f)
             {
+                m_target = m_target1;
+
                 Debug.Log("追跡");
                 m_moveState = MoveState.Chase;  //追跡モードに切り替え
             }
         }
-        
+        else if (Vector3.Distance(transform.position, m_target2.transform.position) < m_distance)
+        {
+            Vector3 diff = m_target2.transform.position - transform.position;
+
+            float angle = Vector3.Angle(transform.forward, diff);
+
+            if (angle < m_fieldOfView / 2f)
+            {
+                m_target = m_target2;
+                Debug.Log("追跡");
+                m_moveState = MoveState.Chase;  //追跡モードに切り替え
+            }
+        }
+        else if (Vector3.Distance(transform.position, m_target3.transform.position) < m_distance)
+        {
+            Vector3 diff = m_target3.transform.position - transform.position;
+
+            float angle = Vector3.Angle(transform.forward, diff);
+
+            if (angle < m_fieldOfView / 2f)
+            {
+                m_target = m_target3;
+                Debug.Log("追跡");
+                m_moveState = MoveState.Chase;  //追跡モードに切り替え
+            }
+        }
+        else if (Vector3.Distance(transform.position, m_target4.transform.position) < m_distance)
+        {
+            Vector3 diff = m_target4.transform.position - transform.position;
+
+            float angle = Vector3.Angle(transform.forward, diff);
+
+            if (angle < m_fieldOfView / 2f)
+            {
+                m_target = m_target4;
+                Debug.Log("追跡");
+                m_moveState = MoveState.Chase;  //追跡モードに切り替え
+            }
+        }
+
     }
 
     /// <summary>
@@ -146,16 +209,17 @@ public class RanchController : MonoBehaviour
         if (m_catchAnimationTimer > 0)
         {
             m_catchAnimationTimer -= Time.deltaTime;
-            
+
         }
         else
         {
             //捕まえるアニメーションの再生
             if (Vector3.Distance(transform.position, m_target.transform.position) < 5f)
-            { 
+            {
                 Debug.Log("捕獲");
-                    m_simpleAnimation.Play("Attack");
-                    UnityAction action = OnCatchAnimationFinished;  //コールバック関数の登録
+                m_simpleAnimation.Play("Attack");
+                UnityAction action = OnCatchAnimationFinished;  //コールバック関数の登録
+
             }
         }
 
@@ -174,20 +238,36 @@ public class RanchController : MonoBehaviour
 
     }
 
-
     /// <summary>
     /// 捕まえるアニメーションが終了したときに呼ばれる関数
     /// </summary>
     void OnCatchAnimationFinished()
     {
-        m_catchAnimationTimer = 0.5f;       //連続で再生されないようにタイマーをセット
+        m_catchAnimationTimer = 5f;       //連続で再生されないようにタイマーをセット
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("Result");
+            CollideName = collision.gameObject.name;
+            switch (CollideName)
+            {
+                case "Player1": EnemyController.Enemypoint[0] -= 1000;
+                break;
+
+                case "Player2": EnemyController.Enemypoint[1] -= 1000;
+                break;
+
+                case "Player3": EnemyController.Enemypoint[2] -= 1000;
+                break;
+
+                case "Player4": EnemyController.Enemypoint[3] -= 1000;
+                break;
+
+                default:
+                break;
+            }
         }
     }
 

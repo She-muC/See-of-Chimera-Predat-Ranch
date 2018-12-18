@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - animal1
-  - animal2
-  - animal3
+  - 1PPlayer
+  - 2PPlayer
+  - Enemy1
+  - Enemy2
+  - Enemy3
   layers:
   - Default
   - TransparentFX

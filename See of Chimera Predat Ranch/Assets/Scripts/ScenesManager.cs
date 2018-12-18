@@ -20,7 +20,7 @@ public class ScenesManager : MonoBehaviour {
     {
         switch(num)
         {
-            case 1 :
+            case 1 :            
             SceneManager.LoadScene("Farm");
             break;
 
@@ -30,6 +30,10 @@ public class ScenesManager : MonoBehaviour {
 
             case 3:
             SceneManager.LoadScene("Title");
+            break;
+
+            case 4:
+            SceneManager.LoadScene("Select");
             break;
 
             default:

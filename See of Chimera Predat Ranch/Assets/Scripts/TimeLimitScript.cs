@@ -17,13 +17,18 @@ public class TimeLimitScript : MonoBehaviour {
     private Text timerText;
 
     [SerializeField]
-    Text fiveCount;
+    Text LimitCount;
 
     [SerializeField]
     Text timeUp;
 
-	// Use this for initialization
-	void Start ()
+    public Text Score1P;
+    public Text Score2P;
+    public Text Score3P;
+    public Text Score4P;
+
+    // Use this for initialization
+    void Start ()
     {
         
         /*minute = 0;
@@ -32,7 +37,7 @@ public class TimeLimitScript : MonoBehaviour {
 
         oldSeconds = 0;
 
-        fiveCount.enabled = false;
+        LimitCount.enabled = false;
 
         timeUp.enabled = false;
 
@@ -60,13 +65,18 @@ public class TimeLimitScript : MonoBehaviour {
         oldSeconds = seconds;
 
         //残り5秒になったら残り時間を2秒表示
-        if(minute <= 0 && (int)seconds <= 5)
+        if(minute <= 0 && (int)seconds <= 10)
         {
-            fiveCount.enabled = true;
+            LimitCount.enabled = true;
 
-            if((int)seconds <= 3)
+            Score1P.enabled = false;
+            Score2P.enabled = false;
+            Score3P.enabled = false;
+            Score4P.enabled = false;
+
+            if ((int)seconds <= 8)
             {
-                fiveCount.enabled = false;
+                LimitCount.enabled = false;
             }
         }
         //タイムアップを表示後リザルト画面へ遷移
