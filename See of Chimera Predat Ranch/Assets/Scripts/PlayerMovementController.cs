@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerMovementController : MonoBehaviour
 {
+    [SerializeField]
+    float m_speed = 10.0f;
 
-    public float m_speed = 3f;
-    public float m_angle = 90f;
+    [SerializeField]
+    float m_angle = 90.0f;
 
     bool m_forward = false;
     bool m_back = false;
